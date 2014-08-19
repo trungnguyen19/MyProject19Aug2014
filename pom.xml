@@ -46,11 +46,11 @@
 			<version>4.2.0.Final</version>
 		</dependency>
 		<!-- Fix error: java.lang.ClassNotFoundException: org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>4.0.6.RELEASE</version>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>4.0.6.RELEASE</version>
+		</dependency>
 		<!-- Fix error: java.lang.ClassNotFoundException: org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -58,6 +58,13 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- Fix error: Could not load JDBC driver class [com.mysql.jdbc.Driver] -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.32</version>
+		</dependency>
+		<!-- Fix error: Could not load JDBC driver class [com.mysql.jdbc.Driver] -->
 	</dependencies>
 	<build>
 		<finalName>MyProject19Aug2014</finalName>
