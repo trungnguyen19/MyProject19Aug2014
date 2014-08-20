@@ -11,7 +11,7 @@ import com.trungnd.mydiary.model.Record;
 public class StringAppTest {
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"com/trungnd/mydiary/applicationContext.xml");
+				"META-INF/mydiary/applicationContext.xml"); // com/trungnd/mydiary/applicationContext.xml
 		RecordDaoImpl dao = (RecordDaoImpl) context.getBean("recordDao");
 
 		Record record1 = new Record(30, 0, new Date(), true, "lunch", "lunch");
