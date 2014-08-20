@@ -14,13 +14,13 @@
 
 	<bean id="recordDao" class="com.trungnd.mydiary.dao.RecordDaoImpl" />
 
-	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+	<!-- <bean id="dataSourceHSQL" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
 		<property name="driverClassName"> <value>org.hsqldb.jdbcDriver</value> </property> 
 		<property name="url"> <value>jdbc:hsqldb:hsql://localhost/testdb</value> 
 		</property> <property name="username"> <value>sa</value> </property> <property 
 		name="password"> <value></value> </property> </bean> -->
 
-	<bean id="dataSource"
+	<bean id="dataSourceMySQL"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName">
 			<value>com.mysql.jdbc.Driver</value>
@@ -36,17 +36,29 @@
 			<value></value>
 		</property>
 	</bean>
-	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
-		<property name="driverClassName"> <value>oracle.jdbc.OracleDriver</value> 
-		</property> <property name="url"> <value>jdbc:oracle:thin:@172.21.1.70:1523:orcl</value> 
-		</property> <property name="username"> <value>trungnd10</value> </property> 
-		<property name="password"> <value>directv</value> </property> </bean> -->
+
+	<bean id="dataSourceOracle"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>oracle.jdbc.OracleDriver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:oracle:thin:@172.21.1.70:1523:orcl</value>
+		</property>
+		<property name="username">
+			<value>trungnd10</value>
+		</property>
+		<property name="password">
+			<value>directv</value>
+		</property>
+	</bean>
+
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="dataSourceOracle" />
 		<property name="persistenceUnitName" value="psunit1" />
 		<!-- fix error: not found psunit1 -->
-		<property name="persistenceXmlLocation" value="classpath:persistence.xml" />
+		<property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
 		<!-- fix error: not found psunit1 -->
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
@@ -54,8 +66,8 @@
 		<property name="jpaProperties">
 			<props>
 				<!-- <prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop> -->
-				<!-- <prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop> -->
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<!-- <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop> -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">false</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
