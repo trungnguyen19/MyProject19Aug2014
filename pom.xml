@@ -9,6 +9,7 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>4.0.6.RELEASE</spring.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -20,14 +21,14 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>4.0.6.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<!-- Fix error: Unable to locate Spring NamespaceHandler for XML schema 
 			namespace -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
-			<version>4.0.6.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<!-- Fix error: Unable to locate Spring NamespaceHandler for XML schema 
 			namespace -->
@@ -36,7 +37,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>4.0.6.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<!-- Fix error: Cannot find class [org.springframework.jdbc.datasource.DriverManagerDataSource] 
 			for bean with name 'dataSource'... -->
@@ -49,7 +50,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.0.6.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<!-- Fix error: java.lang.ClassNotFoundException: org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean -->
 		<dependency>
@@ -65,6 +66,23 @@
 			<version>5.1.32</version>
 		</dependency>
 		<!-- Fix error: Could not load JDBC driver class [com.mysql.jdbc.Driver] -->
+		<!-- web service: spring rest -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- web service: soap -->
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-rt</artifactId>
+			<version>2.1.3</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>MyProject19Aug2014</finalName>
