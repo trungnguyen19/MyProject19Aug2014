@@ -13,6 +13,7 @@ public class AppTest {
 	private static EntityManagerFactory factory;
 
 	public static void main(String[] args) {
+		// fix location: META-INF/persistence.xml
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = factory.createEntityManager();
 

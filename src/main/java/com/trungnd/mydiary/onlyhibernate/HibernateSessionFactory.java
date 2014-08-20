@@ -20,7 +20,7 @@ public class HibernateSessionFactory {
 	public static void main(String[] args) {
 		try {
 			Configuration configuration = new Configuration();
-			configuration.configure()
+			configuration.configure("META-INF/hibernate.cfg.xml")
 					.setProperty("hibernate.show_sql", "false");
 			serviceRegistry = new ServiceRegistryBuilder().applySettings(
 					configuration.getProperties()).buildServiceRegistry();
@@ -35,7 +35,8 @@ public class HibernateSessionFactory {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			List records = session.createQuery("FROM RECORDS").list();
+			List records = session.createQuery("FROM Record").list();
+			System.out.println("size: "+records.size());
 			for (Iterator iterator = records.iterator(); iterator.hasNext();) {
 				Record record = (Record) iterator.next();
 				System.out.println("Id: " + record.getId());
