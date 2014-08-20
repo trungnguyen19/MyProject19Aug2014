@@ -55,11 +55,15 @@
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="dataSource" ref="dataSourceOracle" />
+		<!-- CASE 1 -->
+		<!-- <property name="dataSource" ref="dataSourceOracle" /> -->
+		<!-- CASE 1 -->
+		<!-- CASE 2 -->
 		<property name="persistenceUnitName" value="psunit1" />
 		<!-- fix error: not found psunit1 -->
 		<property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
 		<!-- fix error: not found psunit1 -->
+		<!-- CASE 2 -->
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 		</property>
