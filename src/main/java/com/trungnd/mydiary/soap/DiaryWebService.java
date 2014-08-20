@@ -1,4 +1,4 @@
-package com.trungnd.mydiary.export.soap;
+package com.trungnd.mydiary.soap;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
