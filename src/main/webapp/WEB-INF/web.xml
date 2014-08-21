@@ -5,7 +5,7 @@
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
 
-	<!-- REST -->
+	<!-- REST 1/2 -->
 	<servlet>
 		<servlet-name>rest</servlet-name>
 		<servlet-class>
@@ -13,9 +13,39 @@
 		</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<!-- REST 1/2 -->
+
+	<!-- Jersey rest 1/2 -->
+	<servlet>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<servlet-class>
+			com.sun.jersey.spi.container.servlet.ServletContainer
+		</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>com.trungnd.mydiary.rest.jersey</param-value>
+		</init-param>
+		<!-- Fix error: mime media type application/json was not found -->
+		<init-param>
+			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<!-- Fix error: mime media type application/json was not found -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<!-- Jersey rest 1/2 -->
+
+	<!-- REST 2/2 -->
 	<servlet-mapping>
 		<servlet-name>rest</servlet-name>
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
-	<!-- REST -->
+	<!-- REST 2/2 -->
+
+	<!-- Jersey rest 2/2 -->
+	<servlet-mapping>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<url-pattern>/rest/jersey/*</url-pattern>
+	</servlet-mapping>
+	<!-- Jersey rest 2/2 -->
 </web-app>

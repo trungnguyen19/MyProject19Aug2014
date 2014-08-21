@@ -37,6 +37,7 @@ public class Record implements Serializable {
 	@Column(name = "LABEL")
 	private String label; // specific info
 
+	// Must have no-argument constructor (for jersey rest)
 	public Record() {
 
 	}

@@ -12,7 +12,7 @@ public class SOAPClient {
 
 		// 1st argument service URI, refer to wsdl document above
 		// 2nd argument is service name, refer to wsdl document above
-		QName qname = new QName("http://soap.export.mydiary.trungnd.com/",
+		QName qname = new QName("http://soap.mydiary.trungnd.com/",
 				"DiaryWebServiceImplService");
 
 		Service service = Service.create(url, qname);

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 // applicationContext.xml
 
 // link
-// http://localhost:8080/mkyongWebApp/service/greeting/Priya
+// http://localhost:8080/trungndwebapp/service/greeting/Trung
 
 @RestController
 @RequestMapping("/service/greeting")
