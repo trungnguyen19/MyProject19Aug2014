@@ -11,7 +11,30 @@ import com.sun.jersey.api.json.JSONConfiguration;
 import com.trungnd.mydiary.model.RecordXml;
 
 public class JerseyClient {
-	public static void main(String[] args) {
+	public static void testXml() {
+		try {
+			RecordXml rx = new RecordXml(15000, 0, new Date(), true, "salary",
+					"=)))))");
+			Client client = Client.create();
+			WebResource webResource = client
+					.resource("http://localhost:8080/trungndwebapp/rest/jersey/jerseyDiary/getXmlByTime/2014/8/12");
+			// ClientResponse response = webResource.accept("application/xml")
+			// .post(ClientResponse.class, rx);
+			ClientResponse response = webResource.accept("application/xml")
+					.get(ClientResponse.class);
+			if (response.getStatus() != 200) {
+				throw new RuntimeException("Failed : HTTP error code : "
+						+ response.getStatus());
+			}
+			String output = response.getEntity(String.class);
+			System.out.println("Server response : \n");
+			System.out.println(output);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void testJson() {
 		try {
 			RecordXml rx = new RecordXml(15000, 0, new Date(), true, "salary",
 					"=)))))");
@@ -21,8 +44,10 @@ public class JerseyClient {
 			Client client = Client.create(clientConfig);
 			WebResource webResource = client
 					.resource("http://localhost:8080/trungndwebapp/rest/jersey/jerseyDiary/getJsonByTime/2014/8/12");
+			// ClientResponse response = webResource.accept("application/json")
+			// .type("application/json").post(ClientResponse.class, rx);
 			ClientResponse response = webResource.accept("application/json")
-					.type("application/json").post(ClientResponse.class, rx);
+					.type("application/json").get(ClientResponse.class);
 			if (response.getStatus() != 200) {
 				throw new RuntimeException("Failed : HTTP error code : "
 						+ response.getStatus());
@@ -33,5 +58,10 @@ public class JerseyClient {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static void main(String[] args) {
+		testXml();
+		testJson();
 	}
 }
