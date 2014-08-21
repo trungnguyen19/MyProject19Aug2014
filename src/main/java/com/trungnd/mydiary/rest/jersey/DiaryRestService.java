@@ -1,5 +1,7 @@
 package com.trungnd.mydiary.rest.jersey;
 
+import java.util.Date;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -8,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.trungnd.mydiary.model.Record;
+import com.trungnd.mydiary.model.RecordXml;
 
 @Path("/jerseyDiary")
 public class DiaryRestService {
@@ -20,8 +23,16 @@ public class DiaryRestService {
 	}
 
 	@GET
+	@Path("/getXmlByTime/{year}/{month}/{day}")
+	@Produces(MediaType.APPLICATION_XML)
+	public RecordXml getXmlByTime(@PathParam("year") int year,
+			@PathParam("month") int month, @PathParam("day") int day) {
+		return new RecordXml(15000, 0, new Date(), true,
+				"salary", "=)))))");
+	}
+
+	@GET
 	@Path("/getResponseByTime/{year}/{month}/{day}")
-	@Produces(MediaType.APPLICATION_JSON)
 	public Response getResponseByTime(@PathParam("year") int year,
 			@PathParam("month") int month, @PathParam("day") int day) {
 		return Response
